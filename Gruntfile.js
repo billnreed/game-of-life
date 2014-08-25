@@ -3,6 +3,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-injector');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jshint-stylish');
 
     grunt.initConfig({
         project: {
@@ -29,7 +31,8 @@ module.exports = function(grunt) {
                 livereload: true
             },
             dev: {
-                files: ['<%= project.base %>/index.html']
+                files: ['<%= project.base %>/index.html'],
+                tasks: ['jshint:all']
             }
         },
 
@@ -40,6 +43,15 @@ module.exports = function(grunt) {
                     '<%= project.base %>/index.html': ['bower.json', '<%= project.base %>/**/*.js', '<%= project.base %>/**/*.css']
                 }
             }
+        },
+
+        jshint: {
+            options: {
+                jshintrc: true,
+                reporter: require('jshint-stylish'),
+                ignores: ['<%= project.base %>/bower_components/', 'node_modules/']
+            },
+            all: ['<%= project.base %>/**/*.js']
         }
     });
 
