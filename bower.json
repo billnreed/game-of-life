@@ -1,0 +1,27 @@
+{
+  "name": "game-of-life",
+  "version": "0.0.1",
+  "homepage": "https://github.com/billnreed/game-of-life",
+  "authors": [
+    "Bill Reed <billnreed@gmail.com>"
+  ],
+  "keywords": [
+    "conway",
+    "conway's",
+    "game",
+    "of",
+    "life",
+    "angular",
+    "js",
+    "angularjs"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
