@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     grunt.initConfig({
         project: {
             base: 'project',
-            bower: 'project/bower_components'
+            bower: 'bower_components'
         },
 
         connect: {
@@ -17,11 +17,19 @@ module.exports = function(grunt) {
                 options: {
                     hostname: 'localhost',
                     port: 3000,
-                    base: '<%= project.base %>',
                     livereload: true,
                     open: {
                         target: 'http://localhost:3000',
                         appName: 'Google Chrome'
+                    },
+                    middleware: function(connect) {
+                        return [
+                            connect().use(
+                                '/bower_components',
+                                connect.static('./bower_components')
+                            ),
+                            connect.static('./project')
+                        ];
                     }
                 }
             }
@@ -45,8 +53,8 @@ module.exports = function(grunt) {
                 files: {
                     '<%= project.base %>/index.html': ['bower.json',
                                                        '<%= project.base %>/app.js',
-                                                       '<%= project.base %>/*.js',
-                                                       '<%= project.base %>/*.css']
+                                                       '<%= project.base %>/**/*.js',
+                                                       '<%= project.base %>/**/*.css']
                 }
             }
         },
