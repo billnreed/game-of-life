@@ -49,8 +49,7 @@ module.exports = function(grunt) {
         jshint: {
             options: {
                 jshintrc: true,
-                reporter: require('jshint-stylish'),
-                ignores: ['<%= project.bower %>', 'node_modules/']
+                reporter: require('jshint-stylish')
             },
             all: ['<%= project.base %>/**/*.js']
         }
