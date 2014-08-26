@@ -32,16 +32,21 @@ module.exports = function(grunt) {
                 livereload: true
             },
             dev: {
-                files: ['<%= project.base %>/index.html'],
-                tasks: ['jshint:all']
+                files: ['<%= project.base %>/index.html', '<%= project.base %>/*.js', '<%= project.base %>/*.css'],
+                tasks: ['injector:dev', 'jshint:dev']
             }
         },
 
         injector: {
-            options: {},
-            local_dependencies: {
+            dev: {
+                options: {
+                    ignorePath: '<%= project.base %>'
+                },
                 files: {
-                    '<%= project.base %>/index.html': ['bower.json', '<%= project.base %>/app.js']
+                    '<%= project.base %>/index.html': ['bower.json',
+                                                       '<%= project.base %>/app.js',
+                                                       '<%= project.base %>/*.js',
+                                                       '<%= project.base %>/*.css']
                 }
             }
         },
@@ -51,7 +56,7 @@ module.exports = function(grunt) {
                 jshintrc: true,
                 reporter: require('jshint-stylish')
             },
-            all: ['<%= project.base %>/**/*.js']
+            dev: ['<%= project.base %>/**/*.js']
         }
     });
 
