@@ -24,7 +24,8 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "angularjs": "~1.2.23"
+  "devDependencies": {},
+  "dependencies": {
+    "angular": "~1.2.23"
   }
 }

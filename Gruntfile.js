@@ -8,7 +8,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         project: {
-            base: 'project'
+            base: 'project',
+            bower: 'project/bower_components'
         },
 
         connect: {
@@ -40,7 +41,7 @@ module.exports = function(grunt) {
             options: {},
             local_dependencies: {
                 files: {
-                    '<%= project.base %>/index.html': ['bower.json', '<%= project.base %>/**/*.js', '<%= project.base %>/**/*.css']
+                    '<%= project.base %>/index.html': ['bower.json', '<%= project.base %>/app.js']
                 }
             }
         },
@@ -49,7 +50,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true,
                 reporter: require('jshint-stylish'),
-                ignores: ['<%= project.base %>/bower_components/', 'node_modules/']
+                ignores: ['<%= project.bower %>', 'node_modules/']
             },
             all: ['<%= project.base %>/**/*.js']
         }
