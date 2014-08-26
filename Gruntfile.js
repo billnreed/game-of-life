@@ -5,11 +5,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jshint-stylish');
+    grunt.loadNpmTasks('grunt-karma');
 
     grunt.initConfig({
         project: {
             base: 'project',
-            bower: 'bower_components'
+            bower: 'bower_components',
+            test: 'test'
         },
 
         connect: {
@@ -36,12 +38,16 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            options: {
-                livereload: true
-            },
             dev: {
-                files: ['<%= project.base %>/index.html', '<%= project.base %>/*.js', '<%= project.base %>/*.css'],
+                options: {
+                    livereload: true
+                },
+                files: ['<%= project.base %>/**/*.html', '<%= project.base %>/**/*.js', '<%= project.base %>/**/*.css'],
                 tasks: ['injector:dev', 'jshint:dev']
+            },
+            tdd: {
+                files: ['<%= project.base %>/**/*.js', '<%= project.test %>/**/*.spec.js'],
+                tasks: ['karma:unit']
             }
         },
 
@@ -65,8 +71,15 @@ module.exports = function(grunt) {
                 reporter: require('jshint-stylish')
             },
             dev: ['<%= project.base %>/**/*.js']
+        },
+
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
         }
     });
 
     grunt.registerTask('default', ['injector', 'connect:dev', 'watch:dev']);
+    grunt.registerTask('tdd', ['watch:tdd']);
 };

@@ -3,7 +3,7 @@ game-of-life
 An AngularJS implementation of [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life).
 
 #Backlog
-- [ ] Create a static grid of cells
+- [x] Create a static grid of cells
 - [ ] Cells can be set to either on or off
 - [ ] Game of life is played by grid
     - [ ] The game executes steps for the grid
