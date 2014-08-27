@@ -1,5 +1,5 @@
-function MainCtrl(GridService) {
-    this.grid = GridService.grid;
+function MainCtrl() {
+
 }
 
 angular.module('gameOfLife')

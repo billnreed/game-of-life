@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="en">
+    <meta charset="UTF-8">
     <title>Game of Life</title>
     <!-- injector:css -->
-    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/grid/grid.css">
     <!-- endinjector -->
 </head>
 <body ng-app="gameOfLife">
 <h1>Conway's Game of Life</h1>
-<div id="wrapper" ng-controller="MainCtrl as main">
-    <div id="grid">
-        <div class="row" ng-repeat="row in main.grid">
-            <div class="cell" ng-repeat="cell in row">{{cell.isAlive}}</div>
-        </div>
-    </div>
+<div id="wrapper">
+    <grid></grid>
 </div>
 <!-- injector:js -->
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="/app.js"></script>
-<script src="/grid-service.js"></script>
+<script src="/grid/grid.js"></script>
 <script src="/main-ctrl.js"></script>
 <!-- endinjector -->
 </body>

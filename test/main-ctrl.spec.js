@@ -6,8 +6,4 @@ describe('The MainCtrl', function() {
     beforeEach(inject(function($controller) {
         mainCtrl = $controller('MainCtrl');
     }));
-
-    it('exposes a grid property', function() {
-        expect(mainCtrl.grid).toBeDefined();
-    });
 });
