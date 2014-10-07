@@ -9,15 +9,20 @@
 </head>
 <body ng-app="gameOfLife">
 <h1>Conway's Game of Life</h1>
-<div id="wrapper">
-    <grid></grid>
-</div>
+<grid></grid>
+<controls></controls>
 <!-- injector:js -->
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
 <script src="/app.js"></script>
-<script src="/grid/grid.js"></script>
+<script src="/controls/controls-controller.js"></script>
+<script src="/controls/controls-directive.js"></script>
+<script src="/grid/cell/cell-factory.js"></script>
+<script src="/grid/grid-ctrl.js"></script>
+<script src="/grid/grid-directive.js"></script>
+<script src="/grid/grid-service.js"></script>
 <script src="/main-ctrl.js"></script>
+<script src="/services/grid-rule-service.js"></script>
 <!-- endinjector -->
 </body>
 </html>

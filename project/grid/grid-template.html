@@ -1,5 +1,10 @@
-<div class="grid">
-    <div class="row" ng-repeat="row in grid.grid">
-        <div class="cell" ng-repeat="cell in row">{{cell.isAlive}}</div>
+<div class="gridCtrl">
+    <div ng-repeat="row in gridCtrl.grid">
+        <div class="cell"
+             ng-repeat="cell in row"
+             ng-click="gridCtrl.toggleCell($parent.$index, $index)"
+             ng-class="{alive: cell.isAlive, dead: !cell.isAlive}">
+             &nbsp;
+        </div>
     </div>
 </div>

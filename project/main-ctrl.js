@@ -1,6 +1,4 @@
-function MainCtrl() {
-
-}
-
 angular.module('gameOfLife')
-    .controller('MainCtrl', MainCtrl);
+    .controller('MainCtrl', function() {
+
+    });

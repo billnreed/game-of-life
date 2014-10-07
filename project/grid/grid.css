@@ -5,6 +5,10 @@
     height: 60px;
 }
 
+.cell {
+    transition: background-color 1s;
+}
+
 .cell.alive {
     background-color: black;
 }
@@ -12,3 +16,4 @@
 .cell.dead {
     background-color: white;
 }
+
